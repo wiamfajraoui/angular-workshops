@@ -1,0 +1,60 @@
+<div class="page">
+
+  <h1 class="page-title">💡 Campus Ideas</h1>
+
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="🔎 Rechercher une suggestion..."
+    class="search-input"
+  />
+
+  <div *ngFor="let suggestion of suggestions">
+
+    <div
+      class="card"
+      *ngIf="
+        suggestion.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        suggestion.category.toLowerCase().includes(searchTerm.toLowerCase())
+      "
+    >
+
+      <div class="card-header">
+        <h2>{{ suggestion.title }}</h2>
+        <span
+          class="badge"
+          [ngClass]="{
+            'accepted': suggestion.status === 'acceptee',
+            'refused': suggestion.status === 'refusee',
+            'pending': suggestion.status === 'en_attente'
+          }"
+        >
+          {{ suggestion.status }}
+        </span>
+      </div>
+
+      <p class="description">
+        {{ suggestion.description }}
+      </p>
+
+      <div class="meta">
+        📂 {{ suggestion.category }}
+        <br />
+        📅 {{ suggestion.date | date:'longDate' }}
+      </div>
+
+      <div class="actions" *ngIf="suggestion.status !== 'refusee'">
+        <button class="btn-like" (click)="like(suggestion)">
+          👍 {{ suggestion.nbLikes }}
+        </button>
+
+        <button class="btn-fav" (click)="addToFavorites(suggestion)">
+          ⭐ Favoris
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
