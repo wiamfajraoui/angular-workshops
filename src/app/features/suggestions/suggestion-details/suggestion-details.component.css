@@ -1,0 +1,57 @@
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 400px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+/* TITLE */
+h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* INFO */
+.info {
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.label {
+  font-weight: bold;
+  color: #555;
+}
+
+.value {
+  margin-left: 10px;
+  color: #3498db;
+}
+
+/* BUTTON */
+.actions {
+  margin-top: 25px;
+}
+
+.back-btn {
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #2980b9;
+}

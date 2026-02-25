@@ -1,9 +1,21 @@
-<div *ngFor="let s of [1,2,3]">
+<div class="container">
 
-  <p>Suggestion {{ s }}</p>
+  <div class="header">
+    <h2>💡 Suggestions</h2>
 
-  <button [routerLink]="[s]">
-    Details
-  </button>
+    <button class="add-btn" routerLink="/suggestions/add">
+      ➕ Ajouter une suggestion
+    </button>
+  </div>
+
+  <div class="card" *ngFor="let s of suggestions">
+
+    <h3>{{ s.title }}</h3>
+
+    <button class="details-btn" [routerLink]="[s.id]">
+      Voir détails
+    </button>
+
+  </div>
 
 </div>
