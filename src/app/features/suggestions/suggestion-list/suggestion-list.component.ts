@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SuggestionService } from '../../../core/services/suggestion.service';
 
 @Component({
   selector: 'app-suggestion-list',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuggestionListComponent implements OnInit {
 
-  suggestions = [
-    { id: 1, title: 'Suggestion 1' },
-    { id: 2, title: 'Suggestion 2' },
-    { id: 3, title: 'Suggestion 3' }
-  ];
+  suggestions: any[] = [];
 
-  constructor() {}
+  constructor(private service: SuggestionService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.getSuggestionsList().subscribe(data => {
+      this.suggestions = data as any[];
+    });
+  }
 
 }
